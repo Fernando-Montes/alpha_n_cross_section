@@ -64,26 +64,27 @@ prob_observed = function(n1, n2, b1, b2, b3, b4, b5, a1, a2, effn, effb, effr) {
   return( prob_total )
 }
 
-beam_ratio = 1.0 # ratio of beam intensity between gas in and gas out runs
+beam_ratio = (255840700/4.09)/(216839500/4.23) # ratio of beam intensity between gas in and gas out runs
 norma = 9854    # Term to normalize since the numbers are VERY small!
-l = 4614330/norma
-m1 = 8213/norma
-m2 = 223/norma
-m3 = 8/norma
+l = 4643207/norma
+m1 = 5440/norma
+m2 = 232/norma
+m3 = 9/norma
 m0 = l-m1-m2-m3
 # multiComb = factorial(l)/(factorial(m0)*factorial(m1)*factorial(m2)*factorial(m3))
-factorCS = 4614330/(281378100*5.93e-8) # convert rate to mbarn
+factorCS = 4643207/(255840700*5.93e-8) # convert rate to mbarn
 
-a1_mean = 950/factorCS
-da1 =     200/factorCS
-a2_mean = 50/factorCS
-da2 =     50/factorCS
-tempNorm = 1/6.0e2
-prob_observed( 0.0008249758, 1.921799e-05, 0.0001264530, 2.574810e-05, 5.467092e-07, 0, 0, 0.0015, 0.0019, 1,  1, 0.22 )
-prob_observed(0.0008249758, 1.921799e-05, 0.0001264530, 2.574810e-05, 5.467092e-07, 0, 0, a1_mean, a2_mean,  1,  1, 0.22 )
+a1_mean = 170/factorCS
+da1 =     50/factorCS
+a2_mean = 60/factorCS
+da2 =     30/factorCS
+
+tempNorm = 1/9.0e1
+prob_observed( 0.0007624868, 1.793827e-05, 0.0002258866, 2.825322e-05, 1.494251e-06, 0, 0, 0.000550, 0.000200, 1,  1, 0.22 )
+#prob_observed(0.0008249758, 1.921799e-05, 0.0001264530, 2.574810e-05, 5.467092e-07, 0, 0, a1_mean, a2_mean,  1,  1, 0.22 )
 
 # starting values n1, n2, eff....
-fileName <- "~/Dropbox/Courses/R/alpha_n/alpha_n_85Br/3.55MeV/prob_dist_beam.RData"
+fileName <- "~/Dropbox/Courses/R/alpha_n/alpha_n_85Br/3.35MeV/prob_dist_beam.RData"
 load(file = fileName)
 prob_dist_beam = prob_dist
 # plot_ly(data = prob_dist_beam, x = ~n1, y = ~eff, color = ~prob, size = ~prob)
